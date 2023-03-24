@@ -7,7 +7,7 @@ using Octokit;
 using Octokit.Internal;
 using Spectre.Console;
 
-AnsiConsole.Reset();
+AnsiConsole.Clear();
 AnsiConsole.Write(new FigletText("Karls GitHub Utility").Color(Color.Green));
 
 ICredentialStore credentialStore;
@@ -70,7 +70,7 @@ await AnsiConsole
 var expirationBreakdown = artifacts.GroupBy(x => x.Expired).ToDictionary(x => x.Key, x => x.Sum(x => x.Size));
 
 var breakdownChart = new BreakdownChart()
-    .Width(80)
+    .Width(110)
     .UseValueFormatter((x, _) => x.Bytes().Humanize("#.##"));
 
 foreach(var (expired, size) in expirationBreakdown) {
@@ -122,17 +122,15 @@ await AnsiConsole
         new SpinnerColumn()
     })
     .StartAsync(async ctx => {
-        var task1 = ctx.AddTask($"[red]Removing artifacts with name {artifactName}[/]");
+        var task = ctx.AddTask($"[red]Removing artifacts with name {artifactName}[/]");
 
         var artifactsToRemove = artifacts.Where(x => x.Name == artifactName && x.Expired && x.CreatedAt < DateTime.UtcNow.AddDays(-1)).ToArray();
-        task1.MaxValue = artifactsToRemove.Length;
+        task.MaxValue = artifactsToRemove.Length;
 
         foreach(var item in artifactsToRemove) {
-            var deleteUrl = $"repos/{owner}/{repository}/actions/artifacts/{item.Id}";
             try {
-                //await httpClient.DeleteAsync(deleteUrl);
-                await Task.Delay(100);
-                task1.Increment(1);
+                await httpClient.DeleteArtifactAsync(owner, repository, item.Id);
+                task.Increment(1);
             } catch(Exception ex) {
                 AnsiConsole.WriteException(ex);
                 break;

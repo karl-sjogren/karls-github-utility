@@ -24,4 +24,10 @@ public class GitHubHttpClient {
 
         return response;
     }
+
+    public Task DeleteArtifactAsync(string owner, string repository, Int32 id) {
+        var url = $"/repos/{owner}/{repository}/actions/artifacts/{id}";
+
+        return _httpClient.DeleteAsync(url);
+    }
 }
