@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{362B8B37-5E5D-4E36-B272-17E0D985B7A0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "benchmarks", "benchmarks", "{19AA8CD4-C85C-42FD-A998-5FCD6E29335F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karls.GitHubUtility.Core", "src\Karls.GitHubUtility.Core\Karls.GitHubUtility.Core.csproj", "{C53909E3-1076-402E-981D-477C340599E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karls.GithubUtility.Benchmarks", "benchmarks\Karls.GithubUtility.Benchmarks\Karls.GithubUtility.Benchmarks.csproj", "{D6B1F699-4675-4D99-964D-59C5CEC32058}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{982AABDB-799C-4A5A-817B-421D100AAE99}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{27DC3B6A-1382-472C-A819-A6C8C782CE1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karls.GitHubUtility.Core.Tests", "test\Karls.GitHubUtility.Core.Tests\Karls.GitHubUtility.Core.Tests.csproj", "{6E055661-9DD9-47EA-BFA4-E20862522A9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karls.GithubUtility.Core", "src\Karls.GithubUtility.Core\Karls.GithubUtility.Core.csproj", "{66ACCBBD-6F18-47FB-BC6C-5BDEFCDF4147}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karls.GitHubUtility.TestHelpers", "test\Karls.GitHubUtility.TestHelpers\Karls.GitHubUtility.TestHelpers.csproj", "{23CAAE77-3BA6-47E6-BE31-048D000E3FAC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{066C3D72-CA92-4DB5-A262-CB0185D6F0DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karls.GithubUtility.Console", "src\Karls.GithubUtility.Console\Karls.GithubUtility.Console.csproj", "{F57CC835-EFD4-4D6A-9F15-04135F3E94E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karls.GithubUtility.TestHelpers", "test\Karls.GithubUtility.TestHelpers\Karls.GithubUtility.TestHelpers.csproj", "{9107106F-58F3-4A4B-BAFA-5125D0206644}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karls.GithubUtility.Core.Tests", "test\Karls.GithubUtility.Core.Tests\Karls.GithubUtility.Core.Tests.csproj", "{23C10F1A-E903-4E20-BDF4-0A77D4148CBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karls.GithubUtility.Console", "src\Karls.GithubUtility.Console\Karls.GithubUtility.Console.csproj", "{42FC965E-2C6A-4360-9EC3-716FC4D7588F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,27 +28,32 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C53909E3-1076-402E-981D-477C340599E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C53909E3-1076-402E-981D-477C340599E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C53909E3-1076-402E-981D-477C340599E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C53909E3-1076-402E-981D-477C340599E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E055661-9DD9-47EA-BFA4-E20862522A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E055661-9DD9-47EA-BFA4-E20862522A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E055661-9DD9-47EA-BFA4-E20862522A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E055661-9DD9-47EA-BFA4-E20862522A9C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23CAAE77-3BA6-47E6-BE31-048D000E3FAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23CAAE77-3BA6-47E6-BE31-048D000E3FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23CAAE77-3BA6-47E6-BE31-048D000E3FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23CAAE77-3BA6-47E6-BE31-048D000E3FAC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F57CC835-EFD4-4D6A-9F15-04135F3E94E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F57CC835-EFD4-4D6A-9F15-04135F3E94E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F57CC835-EFD4-4D6A-9F15-04135F3E94E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F57CC835-EFD4-4D6A-9F15-04135F3E94E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6B1F699-4675-4D99-964D-59C5CEC32058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6B1F699-4675-4D99-964D-59C5CEC32058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6B1F699-4675-4D99-964D-59C5CEC32058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6B1F699-4675-4D99-964D-59C5CEC32058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66ACCBBD-6F18-47FB-BC6C-5BDEFCDF4147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66ACCBBD-6F18-47FB-BC6C-5BDEFCDF4147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66ACCBBD-6F18-47FB-BC6C-5BDEFCDF4147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66ACCBBD-6F18-47FB-BC6C-5BDEFCDF4147}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9107106F-58F3-4A4B-BAFA-5125D0206644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9107106F-58F3-4A4B-BAFA-5125D0206644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9107106F-58F3-4A4B-BAFA-5125D0206644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9107106F-58F3-4A4B-BAFA-5125D0206644}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C10F1A-E903-4E20-BDF4-0A77D4148CBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C10F1A-E903-4E20-BDF4-0A77D4148CBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C10F1A-E903-4E20-BDF4-0A77D4148CBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C10F1A-E903-4E20-BDF4-0A77D4148CBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42FC965E-2C6A-4360-9EC3-716FC4D7588F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42FC965E-2C6A-4360-9EC3-716FC4D7588F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42FC965E-2C6A-4360-9EC3-716FC4D7588F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42FC965E-2C6A-4360-9EC3-716FC4D7588F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{C53909E3-1076-402E-981D-477C340599E7} = {362B8B37-5E5D-4E36-B272-17E0D985B7A0}
-		{6E055661-9DD9-47EA-BFA4-E20862522A9C} = {982AABDB-799C-4A5A-817B-421D100AAE99}
-		{23CAAE77-3BA6-47E6-BE31-048D000E3FAC} = {982AABDB-799C-4A5A-817B-421D100AAE99}
-		{F57CC835-EFD4-4D6A-9F15-04135F3E94E3} = {362B8B37-5E5D-4E36-B272-17E0D985B7A0}
+		{D6B1F699-4675-4D99-964D-59C5CEC32058} = {19AA8CD4-C85C-42FD-A998-5FCD6E29335F}
+		{66ACCBBD-6F18-47FB-BC6C-5BDEFCDF4147} = {27DC3B6A-1382-472C-A819-A6C8C782CE1C}
+		{9107106F-58F3-4A4B-BAFA-5125D0206644} = {066C3D72-CA92-4DB5-A262-CB0185D6F0DE}
+		{23C10F1A-E903-4E20-BDF4-0A77D4148CBA} = {066C3D72-CA92-4DB5-A262-CB0185D6F0DE}
+		{42FC965E-2C6A-4360-9EC3-716FC4D7588F} = {27DC3B6A-1382-472C-A819-A6C8C782CE1C}
 	EndGlobalSection
 EndGlobal

@@ -8,20 +8,23 @@
   </ImportGroup>
 
   <ItemGroup>
+    <Using Include="Microsoft.Extensions.Logging.Abstractions"/>
     <Using Include="System.Diagnostics.CodeAnalysis"/>
   </ItemGroup>
 
-   <ItemGroup>
+  <ItemGroup>
     <InternalsVisibleTo Include="$(ProjectName).Tests" />
-    <!-- Needed for Moq to work with InternalsVisibleTo -->
+    <!-- Needed for FakeItEasy to work with InternalsVisibleTo -->
     <InternalsVisibleTo Include="DynamicProxyGenAssembly2" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="3.3.3">
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" />
   </ItemGroup>
 
   <ItemGroup>

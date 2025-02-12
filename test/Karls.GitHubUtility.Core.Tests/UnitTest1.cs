@@ -1,7 +1,8 @@
-namespace Karls.GitHubUtility.Core.Tests;
+namespace Karls.GithubUtility.Core.Tests;
 
 public class UnitTest1 {
     [Fact]
-    public void Test1() {
+    public async Task TestAsync() {
+        await Task.Delay(0, TestCancellationToken);
     }
 }

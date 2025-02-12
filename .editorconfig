@@ -121,8 +121,12 @@ csharp_max_line_length=200
 
 # IDE0005: Using directive is unnecessary.
 dotnet_diagnostic.IDE0005.severity = warning
+
 # IDE0055: Fix formatting
 dotnet_diagnostic.IDE0055.severity = warning
+
+# IDE0290: Use primary constructors
+dotnet_diagnostic.IDE0290.severity = none
 
 dotnet_naming_rule.private_members_with_underscore.symbols = private_fields
 dotnet_naming_rule.private_members_with_underscore.style = prefix_underscore
@@ -141,7 +145,6 @@ dotnet_diagnostic.RCS0008.severity = warning
 dotnet_diagnostic.RCS0010.severity = warning
 dotnet_diagnostic.RCS1003.severity = warning
 dotnet_diagnostic.RCS1077.severity = none
-dotnet_diagnostic.RCS1035.severity = warning
 dotnet_diagnostic.RCS1037.severity = warning
 dotnet_diagnostic.RCS1057.severity = warning
 dotnet_diagnostic.RCS1080.severity = none
@@ -151,11 +154,12 @@ dotnet_diagnostic.RCS1010.severity = warning
 dotnet_diagnostic.RCS1118.severity = none
 dotnet_diagnostic.RCS1124.severity = none
 dotnet_diagnostic.RCS1173.severity = none
-dotnet_diagnostic.RCS1176.severity = warning
 dotnet_diagnostic.RCS1177.severity = warning
 dotnet_diagnostic.RCS1179.severity = none
 dotnet_diagnostic.RCS1221.severity = none
 dotnet_diagnostic.RCS1224.severity = none
+dotnet_diagnostic.RCS1260.severity = warning
+dotnet_diagnostic.RCS1264.severity = warning
 dotnet_diagnostic.RCS0003.severity = warning
 dotnet_diagnostic.RCS1036.severity = warning
 dotnet_diagnostic.RCS1046.severity = warning
@@ -182,6 +186,7 @@ dotnet_diagnostic.IDE0049.severity = none
 dotnet_diagnostic.IDE0130.severity = warning
 dotnet_diagnostic.IDE0160.severity = none
 dotnet_diagnostic.IDE0161.severity = warning
+dotnet_diagnostic.IDE0270.severity = none # Null check can be simplified
 dotnet_diagnostic.IDE1006.severity = warning
 dotnet_diagnostic.CA1041.severity = warning
 dotnet_diagnostic.CA1507.severity = warning
@@ -199,6 +204,10 @@ dotnet_diagnostic.CA2016.severity = warning
 dotnet_diagnostic.CA2017.severity = warning
 dotnet_diagnostic.CA2254.severity = warning
 dotnet_diagnostic.RS0030.severity = error
+
+# These are disabled due to https://github.com/dotnet/roslyn/issues/41640
+dotnet_diagnostic.CS1573.severity = none # Parameter 'parameter' has no matching param tag in the XML comment for 'parameter' (but other parameters do)
+dotnet_diagnostic.CS1591.severity = none # Missing XML comment for publicly visible type or member 'Type_or_Member'
 
 # Karls Analyzers
 
@@ -219,10 +228,10 @@ indent_style=space
 indent_size=4
 tab_width=4
 
-[*.{js,mjs,json,resjson,csproj,props,scss,css}]
+[*.{js,mjs,json,resjson,csproj,props,scss,css,yml,yaml}]
 indent_style=space
 indent_size=2
 tab_width=2
 
-[*.{ps1,sh}]
+[*.{sh}]
 end_of_line=lf

@@ -1,11 +1,8 @@
 <Project>
   <PropertyGroup>
     <ParentDirectoryBuildPropsPath>$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)..\'))</ParentDirectoryBuildPropsPath>
-	  <IsPublishable>false</IsPublishable>
-	  <IsTestProject>true</IsTestProject>
-
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <IsPublishable>false</IsPublishable>
+    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
   <ImportGroup>
@@ -13,13 +10,17 @@
   </ImportGroup>
 
   <ItemGroup>
-    <Using Include="Moq"/>
+    <Using Include="FakeItEasy"/>
+    <Using Include="Microsoft.Extensions.Logging.Abstractions"/>
+    <Using Include="Microsoft.Extensions.Time.Testing"/>
     <Using Include="Shouldly"/>
     <Using Include="Xunit"/>
+    <Using Include="Karls.GithubUtility.TestHelpers.XUnitCancellationTokenHelper" Global="True" Static="True" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Resources/**/*" />
+    <Content Include="../xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Karls.GitHubUtility.TestHelpers\Karls.GitHubUtility.TestHelpers.csproj" Condition=" '$(ProjectName)' != 'Karls.GitHubUtility.TestHelpers' " />
+    <ProjectReference Include="..\Karls.GithubUtility.TestHelpers\Karls.GithubUtility.TestHelpers.csproj" Condition=" '$(ProjectName)' != 'Karls.GithubUtility.TestHelpers' " />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -39,15 +40,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
-    <PackageReference Include="Moq" Version="4.18.4" />
-    <PackageReference Include="Shouldly" Version="4.1.0" />
-    <PackageReference Include="xunit" Version="2.4.2" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.Testing" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.TimeProvider.Testing" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="FakeItEasy" />
+    <PackageReference Include="FakeItEasy.Analyzer.CSharp">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Shouldly" />
+    <PackageReference Include="TestableIO.System.IO.Abstractions.TestingHelpers" />
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="coverlet.msbuild" Version="3.2.0" Condition=" '$(ProjectName)' != 'Karls.GitHubUtility.TestHelpers' ">
+    <PackageReference Include="coverlet.msbuild" Condition=" '$(ProjectName)' != 'Karls.GithubUtility.TestHelpers' ">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

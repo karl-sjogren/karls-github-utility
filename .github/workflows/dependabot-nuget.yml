@@ -1,7 +1,9 @@
-name: '[Dependabot] Build and publish application'
+name: '[Dependabot NuGet] Build .NET'
 
 on:
-  pull_request:
+  push:
+    branches:
+      - 'dependabot/nuget/**'
 
 env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
@@ -15,17 +17,15 @@ jobs:
   net-test:
     name: .NET tests
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }}
 
     steps:
     - name: Checkout sources
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    - name: Install .NET 7
-      uses: actions/setup-dotnet@v3
+    - name: Install .NET
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 7.0.x
-        dotnet-quality: ga
+        global-json-file: global.json
 
     - name: Restore NuGet packages
       run: dotnet restore --verbosity minimal
@@ -40,13 +40,12 @@ jobs:
 
     steps:
     - name: Checkout sources
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    - name: Install .NET 7
-      uses: actions/setup-dotnet@v3
+    - name: Install .NET
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 7.0.x
-        dotnet-quality: ga
+        global-json-file: global.json
 
     - name: Restore NuGet packages
       run: dotnet restore --verbosity minimal

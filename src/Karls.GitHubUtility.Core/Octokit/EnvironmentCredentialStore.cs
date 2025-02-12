@@ -3,7 +3,6 @@ using Octokit;
 
 namespace Karls.GitHubUtility.Core.Octokit;
 
-#pragma warning disable RCS1046 // Asynchronous method name should end with 'Async'.
 public class EnvironmentCredentialStore : ICredentialStore {
     public Task<Credentials> GetCredentials() {
         var token = TokenHelper.GetToken();
@@ -14,4 +13,3 @@ public class EnvironmentCredentialStore : ICredentialStore {
         throw new InvalidOperationException("No token found.");
     }
 }
-#pragma warning restore RCS1046
