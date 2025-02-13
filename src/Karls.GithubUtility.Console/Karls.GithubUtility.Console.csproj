@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Karls.GitHubUtility.Core\Karls.GitHubUtility.Core.csproj" />
+    <ProjectReference Include="..\Karls.GithubUtility.Core\Karls.GithubUtility.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
