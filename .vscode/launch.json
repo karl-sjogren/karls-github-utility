@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "CLI (analyze-export)",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "${workspaceFolder}/src/Karls.GithubUtility.Console/bin/Debug/net9.0/Karls.GithubUtility.Console.dll",
+        "args": [
+          "jira-issue-migration",
+          "/Users/karl/Desktop/af-issues/af-issues-1.xml",
+          "analyze-export"
+        ],
+        "cwd": "${workspaceFolder}/src/Karls.GithubUtility.Console/",
+        "stopAtEntry": false,
+        "console": "integratedTerminal"
+      },
+    ]
+}
